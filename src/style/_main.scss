@@ -1,0 +1,57 @@
+
+//Colors
+
+$border: #454746;
+$btn: #66726c;
+$bg-col: #d8dddb;
+$card-col: #b8c0bd;
+$font-col: #373838;
+
+// Nollställning
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    background-color: $bg-col;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Manrope', sans-serif;
+    color: $border;
+}
+li, p {
+    font-family: 'Roboto', sans-serif;
+    color: $border;
+}
+
+button { 
+    width: 8rem;
+    height: 3rem;
+    background-color: $btn;
+    border: 1px solid $border;
+    margin: 1rem auto;
+    color: #fef8f1;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+@import 'header.scss';
+@import 'cards.scss';
+@import 'form.scss';
