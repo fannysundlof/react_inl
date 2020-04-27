@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from "./Header";
 import App from "./App";
 import Card from "./Cards";
 import Booking from "./Booking";
 import NotFound from "./NotFound";
-import Apitest from "./APItest";
+import APItest from "./APItest";
 
 
 const Navigation = ()=> {
@@ -14,8 +14,10 @@ const Navigation = ()=> {
 
         <div>
             <BrowserRouter>
+            
             <Header />
-            <Apitest />
+            <APItest />
+            <Switch>
             <Route path="/" component={App} exact   ></Route>
             <Route path ="/card" component= {Card} exact></Route>
 
@@ -23,10 +25,8 @@ const Navigation = ()=> {
                 return   <Booking />}} >
               </Route>
 
-
-
-            <Route path="/*"  component= {NotFound} exact></Route>
-            
+            <Route component= {NotFound} exact></Route>
+            </Switch>
             </BrowserRouter>
         
         </div>

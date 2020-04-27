@@ -28,8 +28,6 @@ class Form extends Component {
     handleOnSubmit(e) {
         e.preventDefault()
 
-        //this.setState({}) 
-
     }
 
    render() {
@@ -41,7 +39,6 @@ class Form extends Component {
                 <input type={"number"} className={"input"} placeholder={"Tel"} onChange={this.handleMobileOnChange}></input>
                 <button type={"submit"} onSubmit={this.handleOnSubmit}>Boka</button>
             </form>
-      test
             <div> {this.state.name} </div>
             <div> {this.state.appointmentTime} </div>
             <div> {this.state.mobile} </div>
