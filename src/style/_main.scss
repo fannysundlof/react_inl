@@ -23,6 +23,7 @@ a:link,
 a:visited,
 a:active {
   text-decoration: none;
+  color: $font-col;
 }
 h1,
 h2,
@@ -49,12 +50,15 @@ button {
     font-family: 'Roboto', sans-serif;
 }
 
-.APItest {
+.margin {
 
-    margin: 6rem;
+    margin-top: 6rem;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 
 @import 'header.scss';
 @import 'cards.scss';
 @import 'form.scss';
+@import 'footer.scss';

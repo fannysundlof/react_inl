@@ -6,6 +6,7 @@ import Card from "./Cards";
 import Booking from "./Booking";
 import NotFound from "./NotFound";
 import APItest from "./APItest";
+import Info from "./Info";
 
 
 const Navigation = ()=> {
@@ -14,19 +15,18 @@ const Navigation = ()=> {
 
         <div>
             <BrowserRouter>
-            
-            <Header />
-            <APItest />
-            <Switch>
-            <Route path="/" component={App} exact   ></Route>
-            <Route path ="/card" component= {Card} exact></Route>
+             <Header />
+                    <Switch>
+                    <Route path="/" component={App} exact   ></Route>
+                    <Route path ="/card" component= {Card} exact></Route>
+                    <Route path ="/info" component= {Info} exact></Route>
+                    <Route  render={(props)=>{
+                        return   <Booking />}} >
+                    </Route>
+                    
+                    <Route component= {NotFound} exact></Route>
 
-            <Route  render={(props)=>{
-                return   <Booking />}} >
-              </Route>
-
-            <Route component= {NotFound} exact></Route>
-            </Switch>
+                    </Switch>
             </BrowserRouter>
         
         </div>

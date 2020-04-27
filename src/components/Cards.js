@@ -1,10 +1,11 @@
 import React from "react"; 
+import Footer from "./Footer";
 
 
 const Card = () => {
     return(
 
-
+      <div>
         <section className={"products"}>
         <div className={"products__cards"}>
           <div className={"product__card"}>
@@ -70,7 +71,10 @@ const Card = () => {
           
           </div>
       </section>
+    
+      <Footer />
 
+      </div>
     )
 
 

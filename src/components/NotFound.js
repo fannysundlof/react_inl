@@ -7,7 +7,7 @@ const NotFound = ()=>{
 return (
 
 
-    <div>404 </div>
+    <div className={"APItest"} >404 </div>
 )
 }
 

@@ -27,10 +27,10 @@ class APItest extends Component{
           {this.state.products.map((product) => 
             <APIcard 
             key={product.id}
-            title={product.title} 
-            price={product.price}
-            description= {product.description}
-            //image={"http://localhost:1337"+product.image.url}
+            title={product.Title} 
+            price={product.Price}
+            description= {product.Description}
+            image={"http://localhost:1337"+product.Media.url}
             />
       )} 
                 <button onClick={this.onClickApi.bind(this)}>Hämta</button>

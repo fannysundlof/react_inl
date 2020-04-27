@@ -1,6 +1,6 @@
 # Inlämninngsuppgift 1 Systemutveckling Ramverk
 
-## V1 
+# V1 
 Detta är en layout till en inredningsbutik där kunder kan boka tid för personlig konsultation kring inredning hemma. 
 
 Det är en SPA (Singel Page Application) sida byggd med React för att göra sidan så snabb som möjligt för användaren. 
@@ -15,3 +15,13 @@ React är bra att använda när man vill göra ändringar ofta på sin webbsida 
 Ramverk underlättar kodandet av Javascript och programmeraren slipper skirva lika mycket kod. Ramverk är även lättare att strukturera upp och därmed debugga. 
 
 Det finns andra ramverk i Javascript men vi använder React eftersom i vill skapa en SPA sidan. 
+
+# V2 
+
+Vi har skapat ett CMS i Strapi där vi ska lagra våra produkter som hämtas genom ett API till sidan. 
+Under testing heter detta APItest och APIcard i components
+
+gå in till admin dashboard 
+skapa minst 8 produkter 
+presentera dem. 
+glöm ej publicera. ger behörighet

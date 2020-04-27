@@ -1,10 +1,20 @@
 import React from "react"; 
+import {Link} from "react-router-dom";
 
 
 const Footer = () => {
     return(
 
-        <h2> Footer </h2>
+        <footer className={"footer"}>
+            <ul className={"socialmedia"}>
+                <li><i className={"fab fa-facebook-square fa-2x"}></i></li>
+                <li><i className={"fab fa-twitter-square fa-2x"}></i></li>
+                <li><i className={"fab fa-instagram fa-2x"}></i></li>
+             </ul>
+           
+          <p className={"copyright"}>&copy; 2020</p>
+    </footer>
+        
 
     )
 

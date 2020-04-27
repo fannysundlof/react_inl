@@ -1,0 +1,34 @@
+
+.footer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-top: 4px solid $border;
+    border-bottom: 4px solid $border;
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    background-color: $card-col;
+    opacity: .9;
+   
+}
+  .socialmedia {
+    display: flex;
+    justify-content: center;
+    background-color: $card-col;
+    height: 5rem;
+     
+    li {
+        
+        background-color: $card-col;
+    }
+     i {
+        background-color: $card-col;
+        padding: 10px;
+     }
+  }
+  .copyright {
+    text-align: center;
+    background-color: $card-col;
+  }
+  
+ 

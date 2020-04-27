@@ -8,7 +8,8 @@ const App = (props)=> {
 
         <div>
             <Header />
-           
+            
+                <h1 className={"margin"}>Hem</h1>
             
             <Footer />
         
