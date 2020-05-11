@@ -2,17 +2,23 @@
   "kind": "collectionType",
   "collectionName": "products",
   "info": {
-    "name": "products"
+    "name": "product"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Media": {
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -22,12 +28,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "Description": {
-      "type": "richtext"
-    },
-    "Price": {
-      "type": "decimal"
     }
   }
 }

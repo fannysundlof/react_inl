@@ -1,10 +1,9 @@
 import React from "react";
 
 
-const APIcard = (props)=> {
+const Card = (props)=> {
     return (
 
-        
         <div className={"products__cards"}>
             <div className={"product__card"}>
                 <img
@@ -22,12 +21,8 @@ const APIcard = (props)=> {
         </div>
         
         
-
-
     )
-
-
 
 }
 
-export default APIcard;
+export default Card;

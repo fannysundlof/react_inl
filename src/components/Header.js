@@ -1,5 +1,6 @@
 import React from "react"; 
 import {Link} from "react-router-dom";
+import Logout from "./Auth/Logout";
 
 const Header = () => {
     return(
@@ -14,15 +15,17 @@ const Header = () => {
               <Link to={"/"} className={"navmenu__a"}>Hem</Link>
             </li>
             <li>
-              <Link to={"/card"} className={"navmenu__a"}>Produkter</Link>
+              <Link to={"/products"} className={"navmenu__a"}>Produkter</Link>
             </li>
             <li>
               <Link to={"/booking"} className={"navmenu__a"}>Boka</Link>
             </li>
             <li>
-            <Link to={"/info"} className={"navmenu__a"}>Hitta hit</Link>
+            <Link to={"/admin"} className={"navmenu__a"}>Admin</Link>
             </li>
+            <Logout />
           </ul>
+         
         </nav>
         <a href={"#main-menu-toggel"} className={"backdrop"} hidden>x</a>
       </header>

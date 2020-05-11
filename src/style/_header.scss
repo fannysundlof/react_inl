@@ -70,6 +70,16 @@
     height: 100%;
 }
 
+.logout-btn {
+    width: 5rem;
+    height: 2rem;
+    background-color: $btn;
+    border: 1px solid $border;
+    margin: 0;
+    color: #fef8f1;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
 
 /* MEDIAQUERIES HEADER */
 

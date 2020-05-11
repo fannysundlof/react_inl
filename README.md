@@ -18,10 +18,27 @@ Det finns andra ramverk i Javascript men vi använder React eftersom i vill skap
 
 # V2 
 
-Vi har skapat ett CMS i Strapi där vi ska lagra våra produkter som hämtas genom ett API till sidan. 
-Under testing heter detta APItest och APIcard i components
+Vi har skapat ett CMS i Strapi där vi ska lagra våra produkter som hämtas genom ett API till sidan. Under testing heter detta APItest och APIcard i components
 
-gå in till admin dashboard 
-skapa minst 8 produkter 
-presentera dem. 
-glöm ej publicera. ger behörighet
+# V3
+
+    Lägg till minst 8 produkter/tjänster i din cms.
+
+    Låt de vara public så att ditt frontend ramverk kan göra get,post,put,delete operation med hjälp av axios.
+
+    Från din frontend ramverk skapa ett formulär för admin användare så att de kan skapa, uppdatera, radera produkter i cms dvs de kan göra CRUD operation i CMS. Authentication behöver inte vara fungerande.
+
+    Du har möjlighet att använda vilken som helst headless cms så länge du kan göra likadant features som har angetts övan. 
+
+
+För VG: 
+    Uppfyller kraven för G (obligatorisk)
+    Fungerade Authentication för apier. Bara admin kan skriva, uppdatera, radera data från API:en. (obligatorisk)
+    Man ska lägga till pagination. (good to have features/ icke obligatorisk)
+    Dessutom kan du lägga till en dashboard för admin advandare.(good to have features/icke obligatorisk))
+
+    DONE: Lägg till utloggning i headern för admin
+
+# V4 
+
+    Firebase 

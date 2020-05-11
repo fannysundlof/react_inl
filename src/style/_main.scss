@@ -51,10 +51,14 @@ button {
 }
 
 .margin {
-
     margin-top: 6rem;
     text-align: center;
     text-transform: uppercase;
+}
+
+.center {
+    display: flex;
+    align-items: center;
 }
 
 

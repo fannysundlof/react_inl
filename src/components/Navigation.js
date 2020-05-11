@@ -2,11 +2,13 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from "./Header";
 import App from "./App";
-import Card from "./Cards";
+import Products from './Products';
+import Admin from './Admin';
 import Booking from "./Booking";
 import NotFound from "./NotFound";
-import APItest from "./APItest";
-import Info from "./Info";
+
+
+
 
 
 const Navigation = ()=> {
@@ -18,12 +20,11 @@ const Navigation = ()=> {
              <Header />
                     <Switch>
                     <Route path="/" component={App} exact   ></Route>
-                    <Route path ="/card" component= {Card} exact></Route>
-                    <Route path ="/info" component= {Info} exact></Route>
+                    <Route path="/products" component={Products}></Route>
+                    <Route path ="/admin" component= {Admin} exact></Route>
                     <Route  render={(props)=>{
                         return   <Booking />}} >
                     </Route>
-                    
                     <Route component= {NotFound} exact></Route>
 
                     </Switch>

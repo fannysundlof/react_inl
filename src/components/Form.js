@@ -30,6 +30,9 @@ class Form extends Component {
 
     }
 
+    //Detta ska kopplas med Firebase databas för tidsboking 
+    //När du fyller i formuläret kommer uppgifterna sparas i databasen 
+
    render() {
        return(
            <div>
@@ -39,9 +42,7 @@ class Form extends Component {
                 <input type={"number"} className={"input"} placeholder={"Tel"} onChange={this.handleMobileOnChange}></input>
                 <button type={"submit"} onSubmit={this.handleOnSubmit}>Boka</button>
             </form>
-            <div> {this.state.name} </div>
-            <div> {this.state.appointmentTime} </div>
-            <div> {this.state.mobile} </div>
+            
            </div>
        )
    }
