@@ -1,14 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from "./Header";
-import App from "./App";
-import Products from './Products';
-import Admin from './Admin';
-import Booking from "./Booking";
-import NotFound from "./NotFound";
-
-
-
+import Header from "./Pages/Header";
+import App from "./Pages/App";
+import Products from './Pages/Products';
+import Admin from './AuthAdmin/Admin';
+import Booking from "./Pages/Booking";
+import NotFound from "./Pages/NotFound";
 
 
 const Navigation = ()=> {

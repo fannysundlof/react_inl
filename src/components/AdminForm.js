@@ -17,12 +17,12 @@ class AdminForm extends Component {
         e.preventDefault();
 
          /* --- Lägga till post (utan bild) --- */
-        this.setState({title: e.target.elements.title.value})
+        this.setState({title: e.target.elements.title1.value})
 
        const res = await axios.post("http://localhost:1337/products", {
-            title: e.target.elements.title.value , 
-            description: e.target.elements.description.value,
-            price: e.target.elements.price.value,
+            title: e.target.elements.title1.value , 
+            description: e.target.elements.description1.value,
+            price: e.target.elements.price1.value,
         });
     
         console.log(res)
@@ -47,9 +47,9 @@ class AdminForm extends Component {
 
                 <form onSubmit={this.onSubmitToApi.bind(this)} className={"form"}>
                 <h4 className={"title"}>Lägg till produkt</h4>
-                <input type="text" name="title" placeholder="Name" className={"input"} />
-                <input type="text" name="description" placeholder="Description" className={"input"}  />
-                <input type="number" name="price" placeholder="Price" className={"input"} />
+                <input type="text" name="title1" placeholder="Name" className={"input"} />
+                <input type="text" name="description1" placeholder="Description" className={"input"}  />
+                <input type="number" name="price1" placeholder="Price" className={"input"} />
                 <input
                   type="file"
                   name="file"

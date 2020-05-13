@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Card from './Card';
+import Card from '../Card';
 
 
 
@@ -27,7 +27,8 @@ class Products extends Component{
             
             {this.state.products.map((product) => 
                   <Card 
-                    key={product.id}
+                    id={product.id}
+                    docId={product.id}
                     title={product.title} 
                     price={product.price}
                     description= {product.description}

@@ -1,7 +1,7 @@
 import React from "react"; 
-import Form from "./Form";
+import Form from "../Form";
 import Footer from "./Footer";
-import FirebaseTest from "./Firebase/FirebaseTest";
+import FirebaseTest from "../Firebase/FirebaseTest";
 
 const Booking = () => {
     

@@ -41,8 +41,7 @@
     width: 100%;
     z-index: 999;
     background-color: $card-col;
-    border-top: 2px solid $border;
-    border-bottom: 2px solid $border;
+    
     
 }
 .navmenu__a {
@@ -95,8 +94,6 @@
         box-shadow: none;
         justify-content: center;
         margin-top: 1.8rem;
-        border-top: 2px solid $border;
-    border-bottom: 2px solid $border;
     }
     .navmenu__ul {
         li {

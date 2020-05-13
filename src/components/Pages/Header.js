@@ -1,6 +1,6 @@
 import React from "react"; 
 import {Link} from "react-router-dom";
-import Logout from "./Auth/Logout";
+import Logout from "../AuthAdmin/Logout";
 
 const Header = () => {
     return(

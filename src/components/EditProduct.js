@@ -14,37 +14,23 @@ class EditProducts extends Component {
       this.setState({ products: res.data });
     });
   }
-  componentDidUpdate() {
-    if (Object.keys(this.state.chosenProduct).length > 0) {
-      document.querySelector(
-        'input[name="title"]'
-      ).value = this.state.chosenProduct.title;
-      document.querySelector(
-        'textarea[name="description"]'
-      ).value = this.state.chosenProduct.description;
-      document.querySelector(
-        'input[name="price"]'
-      ).value = this.state.chosenProduct.price;
-    }
-  }
-
-  eventChange(e) {
-    this.setState({ image: e.target.files[0] });
-  }
-
+//Öppna vald produkt
   onClickChosenProduct(e) {
     let chosenProductId = e.target.getAttribute("data-key");
+    localStorage.setItem("id", chosenProductId);
+  
+    
     axios
       .get("http://localhost:1337/products/" + chosenProductId)
       .then((res) => {
         this.setState({ chosenProduct: res.data });
       });
   }
-
+//Gå tillbaka till välj produkt
   onClickAbort() {
     this.setState({ chosenProduct: [] });
   }
-
+// Deleta produkt från databasen
   onClickDelete(e) {
     const chosenProductId = e.target.getAttribute("data-key");
     axios({
@@ -52,95 +38,45 @@ class EditProducts extends Component {
       url: `http://localhost:1337/products/${chosenProductId}`,
     })
       .then((response) => {
-        console.log("Well done");
+        console.log("Product deleted");
         console.log(response);
         console.log(response.status);
-        // this.setState({ chosenProduct: [] });
+        this.setState({ chosenProduct: [] });
       })
       .catch((error) => {
         console.log("An error occurred", error);
       });
   }
-
-  onClickEnableUpload() {
-    const fileInput = document.querySelector("#img__upload");
-    fileInput.disabled = false;
-  }
-
+//Edit produkt
   async onSubmitToApi(e) {
     e.preventDefault();
-
-    const fileInput = document.querySelector("#img__upload");
-
-    const res = await axios.get("http://localhost:1337/products", {
-      title: e.target.elements.title.value,
-      description: e.target.elements.description.value,
-      price: e.target.elements.price.value,
-    });
-
-    if (!fileInput.disabled) {
-      // Upload image
-      console.log("input isnt disabled");
-
-      const formData = new FormData();
-      formData.append("files", this.state.image);
-      formData.append("ref", "product"); // Refererar till table
-      formData.append("refId", res.data.id); // Hämtat post-id från vår post vi skapade.
-      formData.append("field", "image"); // Refererar till column i vår table
-
-      axios({
-        method: "post",
-        url: `http://localhost:1337/upload`,
-        data: formData,
-      })
-        .then((response) => {
-          // Handle success
-          console.log("Picture uploaded to post, Well done");
-          console.log(response);
-          console.log(response.status);
-          this.setState({ status: response.status });
-          console.log("from state:", this.state.status);
-        })
-        .catch((error) => {
-          console.log("An error occurred", error);
-        });
-    }
-
-    axios({
-      method: "put",
-      url: `http://localhost:1337/products/${e.target.elements.id.value}`,
-      data: {
+    let productId = localStorage.getItem("id")
+    
+    const res = await axios.put(
+      `http://localhost:1337/products/${productId}`,
+      {
         title: e.target.elements.title.value,
         description: e.target.elements.description.value,
         price: e.target.elements.price.value,
-      },
-    })
-      .then((response) => {
-        // Handle success
-        console.log("Post created, Well done");
-        console.log(response);
-        console.log(response.status);
-        // this.setState({ status: response.status });
-      })
-      .catch((error) => {
-        console.log("An error occurred", error);
-        // console.log(data);
-      });
-  }
+      }
+    );
+    console.log(res)
+  } 
+  
 
   render() {
     return (
       <div>
         {/* Välj Products */}
         {Object.keys(this.state.chosenProduct).length === 0 && (
-          <div className={"products__cards"}>
+          <div className={"edit_products__cards"}>
             {this.state.products.map((product) => (
-              <div className={"product__card"} key={product.id}>
-                <div>
-                  <h3 className={"product__card-name"}>{product.title}</h3>
-                  <p className={"product__card-price"}>{product.price}kr</p>
+              <div className={"edit_product__card"} key={product.id}>
+                <div className={"edit_product__card"}>
+                  <h3 className={"edit_product__card-name"}>{product.title}</h3>
+                  <p className={"edit_product__card-price"}>{product.price}kr</p>
                   <button
-                    className={"product__card-btn"}
+                    className={"edit_product__card-btn"}
                     onClick={this.onClickChosenProduct.bind(this)}
                     data-key={product.id}
                   >
@@ -152,31 +88,21 @@ class EditProducts extends Component {
           </div>
         )}
         {Object.keys(this.state.chosenProduct).length > 0 && (
-          <div className={"products__cards"}>
+          <div className={"edit_form-wrapper"}>
             <form onSubmit={this.onSubmitToApi.bind(this)} className={"form"}>
-              <h4 className={"title"}>Ändra produkt</h4>
+              <h3 className={"title"}>Ändra produkt</h3>
               <img
-                className={"product__card-img"}
+                className={"edit_product__card-img"}
                 src={
                   "http://localhost:1337" + this.state.chosenProduct.image.url
                 }
-                alt={"hej"}
-              />
-              <button onClick={this.onClickEnableUpload.bind(this)}>
-                Ändra bild
-              </button>
-              <input
-                id={"img__upload"}
-                type="file"
-                name="file"
-                onChange={this.eventChange.bind(this)}
-                disabled
-                className={"input"}
+                alt={"bild"}
               />
               <input
                 type="hidden"
                 name="id"
                 value={this.state.chosenProduct.id}
+                id={this.state.chosenProduct.id}
               />
               <input
                 type="text"
@@ -197,7 +123,7 @@ class EditProducts extends Component {
                 placeholder={"Enter new price"}
                 className={"input"}
               />
-              <button>Spara ändringar</button>
+              <button className={"form-btn"}>Spara ändringar</button>
             </form>
             <button onClick={this.onClickAbort.bind(this)}> Tillbaka </button>
             <button
