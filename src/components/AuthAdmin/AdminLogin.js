@@ -63,15 +63,17 @@ class AdminLogin extends Component {
             {this.state.condition && (
               <div>
                 <h2>Logga in Admin</h2>
-                <form onSubmit={this.onSubmitLogin.bind(this)}>
-                  <input type="text" name="username" placeholder="username" />
+                <form onSubmit={this.onSubmitLogin.bind(this)} className={"form"}>
+                  <input type="text" name="username" placeholder="Username" className={"input"}/>
                   <input
                     type="password"
                     name="password"
-                    placeholder="password"
+                    placeholder="Password"
+                    className={"input"}
                   />
                   <button>Login</button>
                 </form>
+                <button onClick={this.onClickRegister.bind(this)} className={"contact_btn"}>Register</button>
               </div>
             )}
 
@@ -79,22 +81,25 @@ class AdminLogin extends Component {
               <div>
                 <h2>Registera Admin</h2>
 
-                <form onSubmit={this.onSubmitRegister.bind(this)}>
-                  <input type="text" name="username" placeholder="username" />
-                  <input type="email" name="email" placeholder="Email" />
+                <form onSubmit={this.onSubmitRegister.bind(this)} className={"form"}>
+                  <input type="text" name="username" placeholder="Username" className={"input"}/>
+                  <input type="email" name="email" placeholder="Email" className={"input"}/>
                   <input
                     type="password"
                     name="password"
-                    placeholder="password"
+                    placeholder="Password"
+                    className={"input"}
                   />
 
                   <button>Register</button>
                 </form>
+                <h3>Har du redan ett konto?</h3>
+                <button onClick={this.onClickLogin.bind(this)} className={"contact_btn"}>Login</button>
               </div>
             )}
 
-            <button onClick={this.onClickLogin.bind(this)}>Login</button>
-            <button onClick={this.onClickRegister.bind(this)}>Register</button>
+            
+            
           </div>
         );
     }

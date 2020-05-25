@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from "./Pages/Header";
+import Header from "./Includes/Header";
 import App from "./Pages/App";
 import Products from './Pages/Products';
 import Admin from './AuthAdmin/Admin';
 import Booking from "./Pages/Booking";
 import NotFound from "./Pages/NotFound";
+import Footer from './Includes/Footer';
 
 
 const Navigation = ()=> {
@@ -25,6 +26,8 @@ const Navigation = ()=> {
                     <Route component= {NotFound} exact></Route>
 
                     </Switch>
+
+                    <Footer />
             </BrowserRouter>
         
         </div>

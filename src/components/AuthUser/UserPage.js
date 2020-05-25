@@ -1,38 +1,46 @@
 import React, { Component } from "react";
 import UserProfile from "./UserProfile";
 import UserLogin from "./UserLogin";
- 
- 
+import firebase from "../Firebase/FirebaseConfig";
+
 class UserPage extends Component {
- 
-    state = {
-        user: null,
-        
-     }
-    callback(user) {
-        this.setState({ user: user.email })
-        
-        localStorage.setItem("user", this.state.user)
-    }
- 
-    render() {
+  state = {
+    user: "" || localStorage.getItem("user"),
+    displayName: "",
+  };
 
-        const loggedIn = this.state.user || localStorage.getItem("user");
+  callback(user) {
+    localStorage.setItem("user", this.state.user);
+    this.setState({ user: user.email });
+  }
 
-        return (
-            <div>
-                {!loggedIn 
-                    
-                    ?
- 
-                (<UserLogin userCredential={this.callback.bind(this)}/>)
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: user.email,
+          displayName: user.displayName,
+        });
+      } else {
+        this.setState({ user: localStorage.getItem("user") });
+      }
+    });
+  }
 
-                    :
+  render() {
+    const loggedIn = this.state.user || localStorage.getItem("user");
 
-                (<UserProfile userData={this.state.user} />)}
-            </div>
-        )
-    }
+    return (
+      <div>
+        {!loggedIn ? (
+          <UserLogin userCredential={this.callback.bind(this)}
+          />
+        ) : (
+          <UserProfile userData={this.state.displayName || this.state.user} />
+        )}
+      </div>
+    );
+  }
 }
- 
+
 export default UserPage;

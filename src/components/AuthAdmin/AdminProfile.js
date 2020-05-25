@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import AdminForm from "../AdminForm";
-import EditProducts from "../EditProduct";
+import AdminForm from "../Includes/AdminForm";
+import EditProducts from "../Includes/EditProduct";
 
 
 class AdminProfile extends Component{

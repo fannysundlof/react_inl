@@ -28,3 +28,18 @@ Vi har skapat ett CMS i Strapi där vi ska lagra våra produkter som hämtas gen
 # V4 
 
     Firebase 
+
+    På UserLogin kan du: 
+    - Skapa ett konto i firebase
+    - Logga in med google eller facebook
+    - reset password
+    - logga in på konto i firebase
+
+    På UserProfile kan du:
+    -Delete konto
+    -Logga ut
+    -Se bokingar
+    -Se skickade meddelanden
+  
+    I footer kan du:
+    -Skicka meddelande (Spara data i firebase)

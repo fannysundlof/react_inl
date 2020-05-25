@@ -1,6 +1,6 @@
 
 import React, {Component} from "react";
-
+import firebase from "../Firebase/FirebaseConfig";
 
 
 class Logout extends Component{
@@ -9,19 +9,52 @@ class Logout extends Component{
         user: null
      }
 
+     componentDidMount(){
+        firebase.auth()
+        .onAuthStateChanged(
+
+            user=>{ if(user) { this.setState({
+
+            user: user.email, 
+            displayName: user.displayName
+            
+            })} else {
+
+            this.setState({user: localStorage.getItem("user")})
+            } 
+
+            }
+            
+        )
+    }
     
     logOut(){
         localStorage.clear();
         window.location.reload(false);
+        firebase.auth().signOut();
+        }
+    
+        login() {
+
+            window.document.location = "http://localhost:3000/";
         }
 
 
     render(){
 
-        return(
+        const loggedIn = this.state.user || localStorage.getItem("user");
 
-            <li> 
+        return(
+            <li>
+            {loggedIn ? (
+             
             <button className={"logout-btn"} onClick={this.logOut.bind(this)} >Logga ut</button>
+            
+            )
+            :
+            (<button className={"logout-btn"} onClick={this.login.bind(this)}>Logga in</button>)
+            }
+
             </li> 
         )
     }
